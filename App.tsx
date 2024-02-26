@@ -1,39 +1,37 @@
-import { useCallback } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen'
+import { View, StyleSheet } from 'react-native'
+import AppLoading from 'expo-app-loading'
+import {
+  useFonts,
+  Baloo2_400Regular,
+  Baloo2_500Medium,
+  Baloo2_600SemiBold,
+  Baloo2_700Bold,
+} from '@expo-google-fonts/baloo-2'
 import GradientText from './components/GradientText'
 import colors from './utils/colors'
 
-SplashScreen.preventAutoHideAsync()
-
 export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    'Baloo2-Regular': require('./assets/fonts/Baloo2-Regular.ttf'),
-    'Baloo2-Bold': require('./assets/fonts/Baloo2-Bold.ttf'),
-    'Baloo2-Medium': require('./assets/fonts/Baloo2-Medium.ttf'),
+  let [fontsLoaded] = useFonts({
+    Baloo2_400Regular,
+    Baloo2_500Medium,
+    Baloo2_600SemiBold,
+    Baloo2_700Bold,
   })
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync()
-    }
-  }, [fontsLoaded, fontError])
-
-  if (!fontsLoaded && !fontError) {
-    return null
+  if (!fontsLoaded) {
+    return <AppLoading />
+  } else {
+    return (
+      <View style={styles.container}>
+        <GradientText
+          style={styles.heading}
+          colors={[colors.purple, colors.blue]}
+        >
+          Welcome to the Native Balance App
+        </GradientText>
+      </View>
+    )
   }
-
-  return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <GradientText
-        style={styles.heading}
-        colors={[colors.purple, colors.blue]}
-      >
-        Welcome to the Native Balance App
-      </GradientText>
-    </View>
-  )
 }
 
 const styles = StyleSheet.create({
@@ -44,12 +42,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#27272b',
   },
   heading: {
-    fontFamily: 'Baloo2-Bold',
-    fontSize: 30,
+    fontFamily: 'Baloo2_500Medium',
+    fontSize: 32,
+    lineHeight: 40,
     fontWeight: 'bold',
-    color: 'white',
-  },
-  text: {
-    fontSize: 30,
+    textAlign: 'center',
   },
 })
