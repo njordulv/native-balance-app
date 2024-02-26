@@ -1,5 +1,4 @@
-import { View, StyleSheet } from 'react-native'
-import AppLoading from 'expo-app-loading'
+import { View, StatusBar, StyleSheet } from 'react-native'
 import {
   useFonts,
   Baloo2_400Regular,
@@ -7,8 +6,13 @@ import {
   Baloo2_600SemiBold,
   Baloo2_700Bold,
 } from '@expo-google-fonts/baloo-2'
-import GradientText from './components/GradientText'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Logo from './components/Logo'
+import HomeScreen from './components/Homescreen'
 import colors from './utils/colors'
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,33 +23,37 @@ export default function App() {
   })
 
   if (!fontsLoaded) {
-    return <AppLoading />
-  } else {
-    return (
-      <View style={styles.container}>
-        <GradientText
-          style={styles.heading}
-          colors={[colors.purple, colors.blue]}
-        >
-          Welcome to the Native Balance App
-        </GradientText>
-      </View>
-    )
+    return null
   }
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerTintColor: colors.color,
+            headerStyle: {
+              backgroundColor: colors.background,
+            },
+            headerTitle: () => <Logo />,
+          }}
+        />
+      </Stack.Navigator>
+      <View style={styles.container}>
+        <StatusBar />
+      </View>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#27272b',
-  },
-  heading: {
-    fontFamily: 'Baloo2_500Medium',
-    fontSize: 32,
-    lineHeight: 40,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    backgroundColor: colors.background,
   },
 })
