@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native'
-import GradientText from '../components/GradientText'
-import colors from '../utils/colors'
+import GradientText from '@/components/GradientText'
+import colors from '@/utils/colors'
 
 export default function HomeScreen() {
   return (

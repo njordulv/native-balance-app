@@ -8,9 +8,9 @@ import {
 } from '@expo-google-fonts/baloo-2'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Logo from './components/Logo'
-import HomeScreen from './components/Homescreen'
-import colors from './utils/colors'
+import Logo from '@/components/Logo'
+import HomeScreen from '@/components/Homescreen'
+import colors from '@/utils/colors'
 
 const Stack = createNativeStackNavigator()
 
