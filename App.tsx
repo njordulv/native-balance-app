@@ -2,6 +2,8 @@ import { useCallback } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
+import GradientText from './components/GradientText'
+import colors from './utils/colors'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -24,8 +26,12 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={styles.heading}>Baloo2</Text>
-      <Text style={{ fontSize: 30 }}>Platform Default</Text>
+      <GradientText
+        style={styles.heading}
+        colors={[colors.purple, colors.blue]}
+      >
+        Welcome to the Native Balance App
+      </GradientText>
     </View>
   )
 }
@@ -42,5 +48,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
+  },
+  text: {
+    fontSize: 30,
   },
 })
