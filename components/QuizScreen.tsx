@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   heading: {
-    fontFamily: 'Baloo2_500Medium',
+    fontFamily: 'Baloo600',
     fontSize: 32,
     lineHeight: 40,
     textAlign: 'center',

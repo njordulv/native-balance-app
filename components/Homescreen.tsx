@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { Button } from '@/components/Button'
 import GradientText from '@/components/GradientText'
@@ -24,9 +24,12 @@ export default function HomeScreen({
         style={styles.heading}
         colors={[colors.purple, colors.blue]}
       >
-        Welcome to the Native Balance App
+        Welcome to the {'\n'} Native Balance App
       </GradientText>
-      <Button title="Go to Quiz" onPress={() => navigation.navigate('Quiz')} />
+      <Text style={styles.text}>
+        Start your journey {'\n'}to a better lifestyle today.
+      </Text>
+      <Button title="Start Now" onPress={() => navigation.navigate('Quiz')} />
     </View>
   )
 }
@@ -41,9 +44,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   heading: {
-    fontFamily: 'Baloo2_500Medium',
+    fontFamily: 'Baloo600',
     fontSize: 32,
-    lineHeight: 40,
+    lineHeight: 38,
     textAlign: 'center',
+  },
+  text: {
+    fontFamily: 'Baloo400',
+    fontSize: 20,
+    lineHeight: 26,
+    color: colors.white,
+    textAlign: 'center',
+    marginTop: 20,
   },
 })

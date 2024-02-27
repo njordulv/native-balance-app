@@ -16,22 +16,22 @@ export const Button = ({ title, onPress }: ButtonProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 8,
-    color: colors.white,
-    fontSize: 21,
     minWidth: 288,
-    height: 48,
+    height: 50,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
     backgroundColor: colors.purple,
-    borderWidth: 3,
+    color: colors.white,
     borderColor: colors.purple,
+    borderWidth: 3,
+    borderRadius: 14,
     marginTop: 30,
   },
   text: {
     color: colors.white,
-    fontSize: 18,
+    fontFamily: 'Baloo500',
+    fontSize: 22,
   },
 })

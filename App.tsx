@@ -8,13 +8,14 @@ import {
 } from '@expo-google-fonts/baloo-2'
 import { NavigationContainer } from '@react-navigation/native'
 import Navigator from '@/components/Navigator'
+import colors from '@/utils/colors'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    Baloo2_400Regular,
-    Baloo2_500Medium,
-    Baloo2_600SemiBold,
-    Baloo2_700Bold,
+    Baloo400: Baloo2_400Regular,
+    Baloo500: Baloo2_500Medium,
+    Baloo600: Baloo2_600SemiBold,
+    Baloo700: Baloo2_700Bold,
   })
 
   if (!fontsLoaded) {
@@ -34,5 +35,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.background,
   },
 })

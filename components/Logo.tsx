@@ -21,9 +21,6 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: 'center',
     zIndex: 1,
-    paddingTop: 40,
-    paddingBottom: 10,
-    backgroundColor: colors.background,
   },
   logo: {
     width: 60,
