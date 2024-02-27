@@ -9,12 +9,12 @@ type RootStackParamList = {
   Quiz: undefined
 }
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
+type QuizScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Quiz'>
 
-export default function HomeScreen({
+export default function QuizScreen({
   navigation,
 }: {
-  navigation: HomeScreenNavigationProp
+  navigation: QuizScreenNavigationProp
 }) {
   return (
     <View style={styles.navigation}>
@@ -22,9 +22,9 @@ export default function HomeScreen({
         style={styles.heading}
         colors={[colors.purple, colors.blue]}
       >
-        Welcome to the Native Balance App
+        Welcome to Quiz
       </GradientText>
-      <Button title="Go to Quiz" onPress={() => navigation.navigate('Quiz')} />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
     </View>
   )
 }
