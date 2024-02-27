@@ -32,10 +32,11 @@ export default function QuizScreen({
 const styles = StyleSheet.create({
   navigation: {
     flex: 1,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#27272b',
+    backgroundColor: colors.background,
   },
   heading: {
     fontFamily: 'Baloo2_500Medium',

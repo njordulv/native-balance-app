@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.purple,
     borderWidth: 3,
     borderColor: colors.purple,
+    marginTop: 30,
   },
   text: {
     color: colors.white,

@@ -7,13 +7,7 @@ import {
   Baloo2_700Bold,
 } from '@expo-google-fonts/baloo-2'
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Logo from '@/components/Logo'
-import HomeScreen from '@/components/Homescreen'
-import QuizScreen from '@/components/QuizScreen'
-import colors from '@/utils/colors'
-
-const Stack = createNativeStackNavigator()
+import Navigator from '@/components/Navigator'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -29,31 +23,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            headerTintColor: colors.color,
-            headerStyle: {
-              backgroundColor: colors.background,
-            },
-            headerTitle: () => <Logo />,
-          }}
-        />
-        <Stack.Screen
-          name="Quiz"
-          component={QuizScreen}
-          options={{
-            headerTintColor: colors.color,
-            headerStyle: {
-              backgroundColor: colors.background,
-            },
-            headerTitle: () => <Logo />,
-          }}
-        />
-      </Stack.Navigator>
       <View style={styles.container}>
+        <Navigator />
         <StatusBar />
       </View>
     </NavigationContainer>
@@ -63,9 +34,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background,
   },
 })

@@ -2,6 +2,7 @@ import { View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { Button } from '@/components/Button'
 import GradientText from '@/components/GradientText'
+import Logo from '@/components/Logo'
 import colors from '@/utils/colors'
 
 type RootStackParamList = {
@@ -18,6 +19,7 @@ export default function HomeScreen({
 }) {
   return (
     <View style={styles.navigation}>
+      <Logo />
       <GradientText
         style={styles.heading}
         colors={[colors.purple, colors.blue]}
@@ -32,10 +34,11 @@ export default function HomeScreen({
 const styles = StyleSheet.create({
   navigation: {
     flex: 1,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#27272b',
+    backgroundColor: colors.background,
   },
   heading: {
     fontFamily: 'Baloo2_500Medium',
