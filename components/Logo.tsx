@@ -1,5 +1,4 @@
 import { View, Image, StyleSheet } from 'react-native'
-import colors from '@/utils/colors'
 
 export default function Logo() {
   return (
@@ -16,14 +15,14 @@ export default function Logo() {
 const styles = StyleSheet.create({
   logoContainer: {
     position: 'absolute',
-    top: 0,
+    top: 40,
     left: 0,
     right: 0,
     alignItems: 'center',
     zIndex: 1,
   },
   logo: {
-    width: 60,
-    height: 60,
+    width: 80,
+    height: 80,
   },
 })

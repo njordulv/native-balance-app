@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <View style={styles.container}>
+      <View style={styles.appContainer}>
         <Navigator />
         <StatusBar />
       </View>
@@ -33,8 +33,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
     backgroundColor: colors.background,
+    paddingHorizontal: 22,
+    paddingBottom: 50,
   },
 })

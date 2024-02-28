@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { Button } from '@/components/Button'
+import ButtonOriginal from '@/components/buttons/ButtonOriginal'
+import ButtonTransparent from '@/components/buttons/ButtonTransparent'
 import GradientText from '@/components/GradientText'
 import Logo from '@/components/Logo'
 import colors from '@/utils/colors'
@@ -20,16 +21,30 @@ export default function HomeScreen({
   return (
     <View style={styles.navigation}>
       <Logo />
-      <GradientText
-        style={styles.heading}
-        colors={[colors.purple, colors.blue]}
-      >
-        Welcome to the {'\n'} Native Balance App
-      </GradientText>
-      <Text style={styles.text}>
-        Start your journey {'\n'}to a better lifestyle today.
-      </Text>
-      <Button title="Start Now" onPress={() => navigation.navigate('Quiz')} />
+      <View style={styles.content}>
+        <View>
+          <GradientText
+            style={styles.heading}
+            colors={[colors.purple, colors.blue]}
+          >
+            Welcome to the {'\n'} Native Balance App
+          </GradientText>
+          <Text style={styles.text}>
+            Start your journey {'\n'}to a better lifestyle today.
+          </Text>
+        </View>
+      </View>
+      <View style={styles.buttons}>
+        <ButtonOriginal
+          title="Start Now"
+          onPress={() => navigation.navigate('Quiz')}
+        />
+        <ButtonTransparent
+          title="I have an account "
+          onPress={() => navigation.navigate('Quiz')}
+          disabled={true}
+        />
+      </View>
     </View>
   )
 }
@@ -37,24 +52,37 @@ export default function HomeScreen({
 const styles = StyleSheet.create({
   navigation: {
     flex: 1,
-    paddingLeft: 20,
-    paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
   },
+  content: {
+    flex: 1,
+    gap: 30,
+    paddingTop: 190,
+    paddingBottom: 50,
+    justifyContent: 'space-between',
+  },
   heading: {
     fontFamily: 'Baloo600',
-    fontSize: 32,
-    lineHeight: 38,
+    fontSize: 35,
+    lineHeight: 40,
     textAlign: 'center',
   },
   text: {
     fontFamily: 'Baloo400',
-    fontSize: 20,
-    lineHeight: 26,
-    color: colors.white,
+    fontSize: 22,
+    lineHeight: 28,
+    color: colors.color,
     textAlign: 'center',
     marginTop: 20,
+  },
+  buttons: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    width: '100%',
+    gap: 16,
+    position: 'relative',
+    bottom: 0,
   },
 })

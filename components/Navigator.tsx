@@ -1,5 +1,6 @@
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Ionicons } from '@expo/vector-icons'
 import HomeScreen from '@/components/Homescreen'
 import QuizScreen from '@/components/QuizScreen'
 import colors from '@/utils/colors'
@@ -10,13 +11,23 @@ export default function Navigator() {
   return (
     <View style={styles.navigatorContainer}>
       <Stack.Navigator
-        screenOptions={{
+        screenOptions={({ navigation }) => ({
+          headerLeft: () =>
+            navigation.canGoBack() && (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name="arrow-back-circle-outline"
+                  size={30}
+                  color={colors.color}
+                />
+              </TouchableOpacity>
+            ),
           headerTitle: '',
           headerTintColor: colors.color,
           headerStyle: {
             backgroundColor: colors.background,
           },
-        }}
+        })}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Quiz" component={QuizScreen} />
@@ -28,6 +39,5 @@ export default function Navigator() {
 const styles = StyleSheet.create({
   navigatorContainer: {
     flex: 1,
-    marginTop: 60,
   },
 })
