@@ -4,12 +4,14 @@ import { Ionicons } from '@expo/vector-icons'
 import HomeScreen from '@/components/screens/HomeScreen'
 import Step1 from '@/components/screens/Step1'
 import Step2 from '@/components/screens/Step2'
+import Step3 from '@/components/screens/Step3'
 import colors from '@/utils/colors'
 
 type RootStackParamList = {
   Home: undefined
   Step1: undefined
   Step2: undefined
+  Step3: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -24,7 +26,7 @@ export default function Navigator() {
               <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Ionicons
                   name="arrow-back-circle-outline"
-                  size={30}
+                  size={34}
                   color={colors.color}
                 />
               </TouchableOpacity>
@@ -52,6 +54,16 @@ export default function Navigator() {
           component={Step2}
           options={() => ({
             headerRight: () => <Text style={styles.steps}>2/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step3"
+          component={Step3}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>3/14</Text>,
             headerRightContainerStyle: {
               paddingRight: 10,
             },

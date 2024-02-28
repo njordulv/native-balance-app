@@ -1,8 +1,14 @@
-import { View, StyleSheet } from 'react-native'
+import { useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import ButtonOriginal from '@/components/buttons/ButtonOriginal'
-import GradientText from '@/components/GradientText'
-import colors from '@/utils/colors'
+import Layout from '@/components/steps/Layout'
+import OptionList from '@/components/steps/OptionList'
+
+const options = [
+  { label: 'Three times a day', value: 'option1' },
+  { label: 'More than three times a day', value: 'option2' },
+  { label: 'Once a day', value: 'option3' },
+  { label: 'Less than once a day', value: 'option4' },
+]
 
 type ParamsList = {
   Step3: undefined
@@ -10,47 +16,20 @@ type ParamsList = {
 
 type NavProps = StackNavigationProp<ParamsList, 'Step3'>
 
-export default function Step2({ navigation }: { navigation: NavProps }) {
+export default function Step3({ navigation }: { navigation: NavProps }) {
+  const [selectedValue, setSelectedValue] = useState('')
+
   return (
-    <View style={styles.navigation}>
-      <View>
-        <GradientText
-          style={styles.heading}
-          colors={[colors.purple, colors.blue]}
-        >
-          How many full meals do you have during the day?
-        </GradientText>
-      </View>
-      <ButtonOriginal
-        title="Continue"
-        onPress={() => navigation.navigate('Step3')}
+    <Layout
+      heading="How many full meals do you have during the day?"
+      onContinue={() => selectedValue !== '' && navigation.navigate('Step3')}
+      isContinueDisabled={selectedValue === ''}
+    >
+      <OptionList
+        options={options}
+        selectedValue={selectedValue}
+        onSelect={setSelectedValue}
       />
-    </View>
+    </Layout>
   )
 }
-
-const styles = StyleSheet.create({
-  navigation: {
-    flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    paddingHorizontal: 22,
-    paddingBottom: 50,
-    paddingTop: 15,
-  },
-  heading: {
-    fontFamily: 'Baloo500',
-    fontSize: 24,
-    lineHeight: 32,
-    textAlign: 'center',
-  },
-  text: {
-    fontFamily: 'Baloo400',
-    fontSize: 20,
-    lineHeight: 26,
-    color: colors.white,
-    textAlign: 'center',
-    marginTop: 20,
-  },
-})
