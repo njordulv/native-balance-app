@@ -4,11 +4,11 @@ import colors from '@/utils/colors'
 
 type Props = {
   title: string
-  disabled: boolean
+  disabled?: boolean
   onPress: () => void
 }
 
-const ButtonTransparent = ({ title, onPress, disabled }: Props) => {
+const ButtonTransparent = ({ title, disabled, onPress }: Props) => {
   const [isPressed, setIsPressed] = useState(false)
 
   return (
@@ -31,7 +31,7 @@ const ButtonTransparent = ({ title, onPress, disabled }: Props) => {
 const styles = StyleSheet.create({
   button: {
     width: '100%',
-    height: 50,
+    height: 56,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     borderColor: colors.purple,
     borderWidth: 3,
-    borderRadius: 14,
+    borderRadius: 28,
     paddingLeft: 15,
     paddingRight: 15,
   },
