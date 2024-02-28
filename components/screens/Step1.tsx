@@ -1,21 +1,16 @@
-import { Text, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
 import GradientText from '@/components/GradientText'
 import colors from '@/utils/colors'
 
-type RootStackParamList = {
-  Home: undefined
-  Quiz: undefined
+type ParamsList = {
+  Step2: undefined
 }
 
-type QuizScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Quiz'>
+type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
-export default function QuizScreen({
-  navigation,
-}: {
-  navigation: QuizScreenNavigationProp
-}) {
+export default function Step1({ navigation }: { navigation: NavProps }) {
   return (
     <View style={styles.navigation}>
       <View>
@@ -25,13 +20,10 @@ export default function QuizScreen({
         >
           What is your goal with regard to weight management?
         </GradientText>
-        <Text style={styles.text}>
-          Start your journey {'\n'}to a better lifestyle today.
-        </Text>
       </View>
       <ButtonOriginal
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Continue"
+        onPress={() => navigation.navigate('Step2')}
       />
     </View>
   )
@@ -43,6 +35,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.background,
+    paddingHorizontal: 22,
+    paddingBottom: 50,
+    paddingTop: 15,
   },
   heading: {
     fontFamily: 'Baloo500',

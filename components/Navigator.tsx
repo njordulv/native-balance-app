@@ -1,11 +1,18 @@
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Ionicons } from '@expo/vector-icons'
-import HomeScreen from '@/components/Homescreen'
-import QuizScreen from '@/components/QuizScreen'
+import HomeScreen from '@/components/screens/HomeScreen'
+import Step1 from '@/components/screens/Step1'
+import Step2 from '@/components/screens/Step2'
 import colors from '@/utils/colors'
 
-const Stack = createNativeStackNavigator()
+type RootStackParamList = {
+  Home: undefined
+  Step1: undefined
+  Step2: undefined
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export default function Navigator() {
   return (
@@ -30,7 +37,26 @@ export default function Navigator() {
         })}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Quiz" component={QuizScreen} />
+        <Stack.Screen
+          name="Step1"
+          component={Step1}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>1/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step2"
+          component={Step2}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>2/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
       </Stack.Navigator>
     </View>
   )
@@ -39,5 +65,10 @@ export default function Navigator() {
 const styles = StyleSheet.create({
   navigatorContainer: {
     flex: 1,
+  },
+  steps: {
+    fontFamily: 'Baloo400',
+    color: colors.color,
+    fontSize: 16,
   },
 })

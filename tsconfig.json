@@ -8,7 +8,7 @@
       "@/assets/*": ["./assets/*"]
     }
   },
-  "include": ["**/*"],
+  "include": ["**/*", "types/**/*"],
   "exclude": [
     "node_modules",
     "babel.config.js",

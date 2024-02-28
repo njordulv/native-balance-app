@@ -8,7 +8,8 @@ import colors from '@/utils/colors'
 
 type RootStackParamList = {
   Home: undefined
-  Quiz: undefined
+  Step1: undefined
+  Account: undefined
 }
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
@@ -37,11 +38,11 @@ export default function HomeScreen({
       <View style={styles.buttons}>
         <ButtonOriginal
           title="Start Now"
-          onPress={() => navigation.navigate('Quiz')}
+          onPress={() => navigation.navigate('Step1')}
         />
         <ButtonTransparent
-          title="I have an account "
-          onPress={() => navigation.navigate('Quiz')}
+          title="I have an account"
+          onPress={() => navigation.navigate('Account')}
           disabled={true}
         />
       </View>
@@ -55,6 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
+    paddingHorizontal: 22,
+    paddingBottom: 50,
   },
   content: {
     flex: 1,
