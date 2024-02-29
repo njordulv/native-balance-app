@@ -4,25 +4,26 @@ import Layout from '@/components/steps/Layout'
 import OptionList from '@/components/steps/OptionList'
 
 const options = [
-  { label: 'Weight loss', value: 'option1' },
-  { label: 'Muscle gain', value: 'option2' },
-  { label: 'Maintaining current weight', value: 'option3' },
-  { label: 'Improving overall health', value: 'option4' },
+  { label: 'Vegetables', value: 'option1' },
+  { label: 'Fruits', value: 'option2' },
+  { label: 'Meat', value: 'option3' },
+  { label: 'Dairy products', value: 'option4' },
+  { label: 'Grains', value: 'option5' },
 ]
 
 type ParamsList = {
-  Step3: undefined
+  Step4: undefined
 }
 
-type NavProps = StackNavigationProp<ParamsList, 'Step3'>
+type NavProps = StackNavigationProp<ParamsList, 'Step4'>
 
-export default function Step2({ navigation }: { navigation: NavProps }) {
+export default function Step4({ navigation }: { navigation: NavProps }) {
   const [selectedValue, setSelectedValue] = useState('')
 
   return (
     <Layout
-      heading="What is your goal with regard to weight management?"
-      onContinue={() => selectedValue !== '' && navigation.navigate('Step3')}
+      heading="What type of foods do you enjoy the most?"
+      onContinue={() => selectedValue !== '' && navigation.navigate('Step4')}
       isContinueDisabled={selectedValue === ''}
     >
       <OptionList

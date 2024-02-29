@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 import colors from '@/utils/colors'
 

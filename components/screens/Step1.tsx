@@ -1,14 +1,8 @@
-import { useState } from 'react'
+import { View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import Layout from '@/components/steps/Layout'
-import OptionList from '@/components/steps/OptionList'
-
-const options = [
-  { label: 'Weight loss', value: 'option1' },
-  { label: 'Muscle gain', value: 'option2' },
-  { label: 'Maintaining current weight', value: 'option3' },
-  { label: 'Improving overall health', value: 'option4' },
-]
+import GradientText from '@/components/GradientText'
+import ButtonImage from '@/components/buttons/ButtonImage'
+import colors from '@/utils/colors'
 
 type ParamsList = {
   Step2: undefined
@@ -16,20 +10,59 @@ type ParamsList = {
 
 type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
-export default function Step2({ navigation }: { navigation: NavProps }) {
-  const [selectedValue, setSelectedValue] = useState('')
-
+export default function Step1({ navigation }: { navigation: NavProps }) {
   return (
-    <Layout
-      heading="What is your goal with regard to weight management?"
-      onContinue={() => selectedValue !== '' && navigation.navigate('Step2')}
-      isContinueDisabled={selectedValue === ''}
-    >
-      <OptionList
-        options={options}
-        selectedValue={selectedValue}
-        onSelect={setSelectedValue}
-      />
-    </Layout>
+    <View style={styles.container}>
+      <GradientText
+        style={styles.heading}
+        colors={[colors.purple, colors.blue]}
+      >
+        What is your gender?
+      </GradientText>
+      <View style={styles.content}>
+        <View style={styles.buttons}>
+          <ButtonImage
+            onPress={() => navigation.navigate('Step2')}
+            source={require('@/assets/fitness-man.png')}
+            title="Man"
+          />
+          <ButtonImage
+            onPress={() => navigation.navigate('Step2')}
+            source={require('@/assets/fitness-woman.png')}
+            title="Woman"
+          />
+        </View>
+      </View>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: 'flex',
+    gap: 20,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+    paddingHorizontal: 22,
+    paddingBottom: 50,
+    paddingTop: 15,
+  },
+  content: {
+    width: '100%',
+  },
+  heading: {
+    fontFamily: 'Baloo500',
+    fontSize: 24,
+    lineHeight: 32,
+    textAlign: 'center',
+  },
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 20,
+  },
+})
