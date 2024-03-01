@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { LineChart } from 'react-native-gifted-charts'
+import { AnimatedLabel } from '@/animations/AnimatedLabel'
+import { AnimatedPoints } from '@/animations/AnimatedPoints'
 import GradientText from '@/components/GradientText'
-import ButtonOriginal from '../buttons/ButtonOriginal'
-import { AnimatedLabel } from '../animations/AnimatedLabel'
-import { AnimatedPoints } from '../animations/AnimatedPoints'
+import ButtonOriginal from '@/components/buttons/ButtonOriginal'
 import colors from '@/utils/colors'
 
 type ParamsList = {

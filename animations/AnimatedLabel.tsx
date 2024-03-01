@@ -1,15 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Animated, View, StyleProp, ViewStyle } from 'react-native'
+import { useState, useEffect, useRef } from 'react'
+import {
+  Animated,
+  Text,
+  View,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+} from 'react-native'
+import colors from '@/utils/colors'
 
-type AnimatedPointProps = {
+type AnimatedLabelProps = {
   delay: number
   labelStyle: StyleProp<ViewStyle>
+  dotStyle: StyleProp<ViewStyle>
+  text: string
 }
 
-export const AnimatedPoints = ({ delay, labelStyle }: AnimatedPointProps) => {
+export const AnimatedLabel = ({
+  delay,
+  labelStyle,
+  dotStyle,
+  text,
+}: AnimatedLabelProps) => {
   const [visible, setVisible] = useState(false)
   const fadeAnim = useRef(new Animated.Value(0)).current
-  const scaleAnim = useRef(new Animated.Value(0)).current
+  const scaleAnim = useRef(new Animated.Value(0.25)).current
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,7 +32,7 @@ export const AnimatedPoints = ({ delay, labelStyle }: AnimatedPointProps) => {
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
-          duration: 400,
+          duration: 1000,
           useNativeDriver: true,
         }),
         Animated.spring(scaleAnim, {
@@ -43,7 +58,19 @@ export const AnimatedPoints = ({ delay, labelStyle }: AnimatedPointProps) => {
         transform: [{ scale: scaleAnim }],
       }}
     >
-      <View style={labelStyle}></View>
+      <View style={labelStyle}>
+        <View style={dotStyle}></View>
+        <Text style={styles.labelText}>{text}</Text>
+      </View>
     </Animated.View>
   )
 }
+
+const styles = StyleSheet.create({
+  labelText: {
+    fontFamily: 'Baloo500',
+    fontSize: 13,
+    lineHeight: 24,
+    color: colors.color,
+  },
+})
