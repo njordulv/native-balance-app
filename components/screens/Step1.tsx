@@ -5,10 +5,10 @@ import ButtonImage from '@/components/buttons/ButtonImage'
 import colors from '@/utils/colors'
 
 type ParamsList = {
-  Step2: undefined
+  StatScreen: undefined
 }
 
-type NavProps = StackNavigationProp<ParamsList, 'Step2'>
+type NavProps = StackNavigationProp<ParamsList, 'StatScreen'>
 
 export default function Step1({ navigation }: { navigation: NavProps }) {
   return (
@@ -22,12 +22,12 @@ export default function Step1({ navigation }: { navigation: NavProps }) {
       <View style={styles.content}>
         <View style={styles.buttons}>
           <ButtonImage
-            onPress={() => navigation.navigate('Step2')}
+            onPress={() => navigation.navigate('StatScreen')}
             source={require('@/assets/fitness-man.png')}
             title="Man"
           />
           <ButtonImage
-            onPress={() => navigation.navigate('Step2')}
+            onPress={() => navigation.navigate('StatScreen')}
             source={require('@/assets/fitness-woman.png')}
             title="Woman"
           />

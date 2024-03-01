@@ -12,10 +12,10 @@ const options = [
 ]
 
 type ParamsList = {
-  Step4: undefined
+  Step5: undefined
 }
 
-type NavProps = StackNavigationProp<ParamsList, 'Step4'>
+type NavProps = StackNavigationProp<ParamsList, 'Step5'>
 
 export default function Step4({ navigation }: { navigation: NavProps }) {
   const [selectedValue, setSelectedValue] = useState('')
@@ -23,7 +23,7 @@ export default function Step4({ navigation }: { navigation: NavProps }) {
   return (
     <Layout
       heading="What type of foods do you enjoy the most?"
-      onContinue={() => selectedValue !== '' && navigation.navigate('Step4')}
+      onContinue={() => selectedValue !== '' && navigation.navigate('Step5')}
       isContinueDisabled={selectedValue === ''}
     >
       <OptionList

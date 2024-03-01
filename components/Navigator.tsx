@@ -6,6 +6,7 @@ import Step1 from '@/components/screens/Step1'
 import Step2 from '@/components/screens/Step2'
 import Step3 from '@/components/screens/Step3'
 import Step4 from '@/components/screens/Step4'
+import StatScreen from '@/components/screens/StatScreen'
 import colors from '@/utils/colors'
 
 type RootStackParamList = {
@@ -14,6 +15,7 @@ type RootStackParamList = {
   Step2: undefined
   Step3: undefined
   Step4: undefined
+  StatScreen: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -51,6 +53,7 @@ export default function Navigator() {
             },
           })}
         />
+        <Stack.Screen name="StatScreen" component={StatScreen} />
         <Stack.Screen
           name="Step2"
           component={Step2}
