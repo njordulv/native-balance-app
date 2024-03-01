@@ -3,6 +3,8 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { LineChart } from 'react-native-gifted-charts'
 import GradientText from '@/components/GradientText'
 import ButtonOriginal from '../buttons/ButtonOriginal'
+import { AnimatedLabel } from '../animations/AnimatedLabel'
+import { AnimatedPoints } from '../animations/AnimatedPoints'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -12,24 +14,75 @@ type ParamsList = {
 type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function StatScreen({ navigation }: { navigation: NavProps }) {
-  const dataRed = [
-    { value: 60 },
-    { value: 58 },
-    { value: 49 },
-    { value: 63 },
-    { value: 55 },
-    { value: 82 },
-    { value: 85 },
+  const dataPointStart = () => {
+    return <AnimatedPoints delay={100} labelStyle={styles.point2} />
+  }
+
+  const dataPoint1 = () => {
+    return <AnimatedPoints delay={1600} labelStyle={styles.point1} />
+  }
+
+  const dataPoint2 = () => {
+    return <AnimatedPoints delay={1800} labelStyle={styles.point2} />
+  }
+
+  const dataPointDefault = () => {
+    return (
+      <View
+        style={{
+          display: 'none',
+        }}
+      />
+    )
+  }
+
+  const Label1 = () => (
+    <AnimatedLabel
+      delay={1700}
+      labelStyle={styles.label1}
+      dotStyle={styles.dot1}
+      text="Restrictive diets"
+    />
+  )
+
+  const Label2 = () => (
+    <AnimatedLabel
+      delay={1900}
+      labelStyle={styles.label2}
+      dotStyle={styles.dot2}
+      text="RN Balance"
+    />
+  )
+
+  const data1 = [
+    { value: 60, customDataPoint: dataPointDefault },
+    { value: 58, customDataPoint: dataPointDefault },
+    { value: 49, customDataPoint: dataPointDefault },
+    { value: 63, customDataPoint: dataPointDefault },
+    { value: 55, customDataPoint: dataPointDefault },
+    {
+      value: 82,
+      labelComponent: Label2,
+      customDataPoint: dataPointDefault,
+    },
+    {
+      value: 85,
+      labelComponent: Label1,
+      customDataPoint: dataPoint1,
+    },
   ]
 
-  const dataGreen = [
-    { value: 60 },
-    { value: 54 },
-    { value: 37 },
-    { value: 33 },
-    { value: 31 },
-    { value: 24 },
-    { value: 23 },
+  const data2 = [
+    { value: 60, customDataPoint: dataPointStart },
+    { value: 54, customDataPoint: dataPointDefault },
+    { value: 37, customDataPoint: dataPointDefault },
+    { value: 33, customDataPoint: dataPointDefault },
+    { value: 31, customDataPoint: dataPointDefault },
+    { value: 24, customDataPoint: dataPointDefault },
+    {
+      value: 23,
+      customDataPoint: dataPoint2,
+    },
   ]
 
   return (
@@ -49,13 +102,11 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
             isAnimated
             animateTogether
             hideAxesAndRules
-            hideDataPoints
             animationDuration={2000}
-            initialSpacing={0}
-            height={240}
-            spacing={53}
-            data={dataRed}
-            data2={dataGreen}
+            height={220}
+            spacing={52}
+            data={data1}
+            data2={data2}
             color1={colors.red}
             color2={colors.blue}
             startFillColor1={colors.red}
@@ -74,10 +125,12 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
           </Text>
         </View>
       </View>
-      <ButtonOriginal
-        title="Continue"
-        onPress={() => navigation.navigate('Step2')}
-      />
+      <View style={{ width: '100%', paddingHorizontal: 22 }}>
+        <ButtonOriginal
+          title="Continue"
+          onPress={() => navigation.navigate('Step2')}
+        />
+      </View>
     </View>
   )
 }
@@ -90,7 +143,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: colors.background,
-    paddingHorizontal: 22,
     paddingBottom: 50,
     paddingTop: 15,
   },
@@ -99,14 +151,70 @@ const styles = StyleSheet.create({
   },
   chart: {
     position: 'relative',
-    left: -30,
-    width: 360,
+    left: -25,
+  },
+  point1: {
+    width: 18,
+    height: 18,
+    backgroundColor: colors.red,
+    borderColor: colors.background,
+    borderWidth: 4,
+    borderRadius: 10,
+  },
+  point2: {
+    width: 18,
+    height: 18,
+    backgroundColor: colors.blue,
+    borderColor: colors.background,
+    borderWidth: 4,
+    borderRadius: 10,
+  },
+  label1: {
+    position: 'absolute',
+    width: 120,
+    bottom: 105,
+    right: 37,
+    backgroundColor: colors.transparentDark,
+    paddingHorizontal: 7,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    borderRadius: 15,
+    overflow: 'hidden',
+  },
+  label2: {
+    position: 'absolute',
+    width: 90,
+    bottom: 20,
+    right: -16,
+    backgroundColor: colors.transparentDark,
+    paddingHorizontal: 7,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    borderRadius: 15,
+    overflow: 'hidden',
+    zIndex: 2,
+  },
+  dot1: {
+    backgroundColor: colors.red,
+    width: 8,
+    height: 8,
+    borderRadius: 8,
+  },
+  dot2: {
+    backgroundColor: colors.blue,
+    width: 8,
+    height: 8,
+    borderRadius: 8,
   },
   heading: {
     fontFamily: 'Baloo500',
     fontSize: 24,
     lineHeight: 32,
     textAlign: 'center',
+    paddingHorizontal: 22,
   },
   text: {
     fontFamily: 'Baloo400',

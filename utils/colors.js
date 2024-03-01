@@ -21,13 +21,10 @@ const colors = {
   gradient4: 'background 60%, black 90%',
   gradient5: 'orange 0%, red 45%',
   gradientfocus: 'pink 30%, purple-light 95%',
-  transparent: 'rgba(255, 255, 255, 0.3)',
+  transparent: 'rgba(255, 255, 255, 0.4)',
+  transparentDark: 'rgba(0, 0, 0, 0.3)',
   placeholder: '#777',
   border: '#333',
-  btnColor: '#fff',
-  fontsize: '16px',
-  lineHeight: '24px',
-  headerHeight: '68px',
 }
 
 export default colors
