@@ -3,10 +3,10 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { LineChart } from 'react-native-gifted-charts'
 import { AnimatedLabel } from '@/animations/AnimatedLabel'
 import { AnimatedPoints } from '@/animations/AnimatedPoints'
+import { useSelector } from '@/redux/store'
+import { selectGender } from '@/slices/stepSlice'
 import GradientText from '@/components/GradientText'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
-import { useSelector } from 'lib/redux/store'
-import { selectGender } from 'lib/redux/slices/stepSlice'
 import colors from '@/utils/colors'
 
 type ParamsList = {

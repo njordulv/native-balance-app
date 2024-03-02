@@ -3,7 +3,7 @@ import {
   useSelector as useReduxSelector,
   useDispatch as useReduxDispatch,
 } from 'react-redux'
-import stepsReducer from './slices/stepSlice'
+import stepsReducer from '@/slices/stepSlice'
 
 export const store = configureStore({
   reducer: {

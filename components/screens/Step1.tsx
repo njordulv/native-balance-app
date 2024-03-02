@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useDispatch } from '@/redux/store'
+import { setGender } from '@/slices/stepSlice'
 import GradientText from '@/components/GradientText'
 import ButtonImage from '@/components/buttons/ButtonImage'
-import { useDispatch } from 'lib/redux/store'
-import { setGender } from 'lib/redux/slices/stepSlice'
 import colors from '@/utils/colors'
 
 type ParamsList = {

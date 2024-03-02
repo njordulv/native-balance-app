@@ -6,7 +6,9 @@
       "@/components/*": ["./components/*"],
       "@/animations/*": ["./animations/*"],
       "@/utils/*": ["./utils/*"],
-      "@/assets/*": ["./assets/*"]
+      "@/assets/*": ["./assets/*"],
+      "@/redux/*": ["./lib/redux/*"],
+      "@/slices/*": ["./lib/redux/slices/*"]
     }
   },
   "include": ["**/*", "types/**/*"],
