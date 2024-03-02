@@ -7,6 +7,7 @@ import { useSelector } from '@/redux/store'
 import { selectGender } from '@/slices/stepSlice'
 import GradientText from '@/components/GradientText'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
+import { randomValues } from '@/utils/functions'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -19,7 +20,7 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
   const gender = useSelector(selectGender)
 
   const dataPointStart = () => {
-    return <AnimatedPoints delay={100} pointStyle={styles.point2} />
+    return <AnimatedPoints delay={200} pointStyle={styles.point2} />
   }
 
   const dataPoint1 = () => {
@@ -73,16 +74,16 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
       customDataPoint: dataPointDefault,
     },
     { value: 58, customDataPoint: dataPointDefault },
-    { value: 49, customDataPoint: dataPointDefault },
-    { value: 63, customDataPoint: dataPointDefault },
-    { value: 55, customDataPoint: dataPointDefault },
+    { value: randomValues(49, 53), customDataPoint: dataPointDefault },
+    { value: randomValues(58, 64), customDataPoint: dataPointDefault },
+    { value: randomValues(53, 57), customDataPoint: dataPointDefault },
     {
-      value: 82,
+      value: randomValues(73, 78),
       labelComponent: labelTwo,
       customDataPoint: dataPointDefault,
     },
     {
-      value: 85,
+      value: randomValues(79, 85),
       labelComponent: labelOne,
       customDataPoint: dataPoint1,
     },
@@ -93,10 +94,10 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
     { value: 54, customDataPoint: dataPointDefault },
     { value: 36, customDataPoint: dataPointDefault },
     { value: 33, customDataPoint: dataPointDefault },
-    { value: 31, customDataPoint: dataPointDefault },
-    { value: 24, customDataPoint: dataPointDefault },
+    { value: randomValues(28, 31), customDataPoint: dataPointDefault },
+    { value: randomValues(24, 27), customDataPoint: dataPointDefault },
     {
-      value: 23,
+      value: randomValues(21, 24),
       customDataPoint: dataPoint2,
     },
   ]
