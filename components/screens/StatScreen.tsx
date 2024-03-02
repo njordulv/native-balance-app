@@ -36,6 +36,14 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
     )
   }
 
+  const labelTitle = (val: string) => {
+    return (
+      <View style={styles.labelTitle}>
+        <Text style={styles.labelTitleText}>{val}</Text>
+      </View>
+    )
+  }
+
   const labelOne = () => (
     <AnimatedLabel
       delay={1700}
@@ -55,7 +63,11 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
   )
 
   const data1 = [
-    { value: 60, customDataPoint: dataPointDefault },
+    {
+      value: 60,
+      labelComponent: () => labelTitle('Weight'),
+      customDataPoint: dataPointDefault,
+    },
     { value: 58, customDataPoint: dataPointDefault },
     { value: 49, customDataPoint: dataPointDefault },
     { value: 63, customDataPoint: dataPointDefault },
@@ -160,6 +172,15 @@ const styles = StyleSheet.create({
   point2: {
     backgroundColor: colors.blue,
     borderColor: colors.background,
+  },
+  labelTitle: {
+    position: 'absolute',
+    left: 22,
+    bottom: 220,
+  },
+  labelTitleText: {
+    color: colors.color,
+    fontFamily: 'Baloo500',
   },
   label1: {
     width: 120,

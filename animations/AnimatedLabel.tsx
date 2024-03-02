@@ -45,7 +45,7 @@ export const AnimatedLabel = ({
     return () => {
       clearTimeout(timer)
       fadeAnim.setValue(0)
-      scaleAnim.setValue(0.3)
+      scaleAnim.setValue(0)
     }
   }, [delay])
 
@@ -59,6 +59,7 @@ export const AnimatedLabel = ({
       }}
     >
       <View style={[styles.label, labelStyle]}>
+        <View style={styles.labelCaret}></View>
         <View style={[styles.dotPoint, dotStyle]}></View>
         <Text style={styles.labelText}>{text}</Text>
       </View>
@@ -69,7 +70,6 @@ export const AnimatedLabel = ({
 const styles = StyleSheet.create({
   label: {
     position: 'absolute',
-    overflow: 'hidden',
     backgroundColor: colors.transparentDark,
     flexDirection: 'row',
     alignItems: 'center',
@@ -81,6 +81,20 @@ const styles = StyleSheet.create({
     width: 9,
     height: 9,
     borderRadius: 9,
+  },
+  labelCaret: {
+    position: 'absolute',
+    width: 0,
+    height: 0,
+    top: -5,
+    left: '50%',
+    marginLeft: 2,
+    borderLeftWidth: 5,
+    borderRightWidth: 5,
+    borderStyle: 'solid',
+    borderColor: 'transparent',
+    borderBottomWidth: 5,
+    borderBottomColor: colors.transparentDark,
   },
   labelText: {
     fontFamily: 'Baloo500',
