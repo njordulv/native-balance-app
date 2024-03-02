@@ -6,16 +6,20 @@ import Step1 from '@/components/screens/Step1'
 import Step2 from '@/components/screens/Step2'
 import Step3 from '@/components/screens/Step3'
 import Step4 from '@/components/screens/Step4'
+import Step5 from '@/components/screens/Step5'
+import Step6 from '@/components/screens/Step6'
 import StatScreen from '@/components/screens/StatScreen'
 import colors from '@/utils/colors'
 
 type RootStackParamList = {
   Home: undefined
   Step1: undefined
+  StatScreen: undefined
   Step2: undefined
   Step3: undefined
   Step4: undefined
-  StatScreen: undefined
+  Step5: undefined
+  Step6: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -79,6 +83,26 @@ export default function Navigator() {
           component={Step4}
           options={() => ({
             headerRight: () => <Text style={styles.steps}>4/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step5"
+          component={Step5}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>5/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step6"
+          component={Step6}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>6/14</Text>,
             headerRightContainerStyle: {
               paddingRight: 10,
             },
