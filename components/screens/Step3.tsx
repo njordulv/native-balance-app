@@ -22,6 +22,7 @@ export default function Step3({ navigation }: { navigation: NavProps }) {
   return (
     <Layout
       heading="How many full meals do you have during the day?"
+      subheading="Choose one key meal for yourself"
       onContinue={() => selectedValue !== '' && navigation.navigate('Step4')}
       isContinueDisabled={selectedValue === ''}
     >

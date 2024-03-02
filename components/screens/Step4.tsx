@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import Layout from '@/components/steps/Layout'
-import OptionList from '@/components/steps/OptionList'
+import OptionsList from '@/components/steps/OptionsList'
 
 const options = [
   { label: 'Vegetables', value: 'option1' },
@@ -18,18 +18,25 @@ type ParamsList = {
 type NavProps = StackNavigationProp<ParamsList, 'Step5'>
 
 export default function Step4({ navigation }: { navigation: NavProps }) {
-  const [selectedValue, setSelectedValue] = useState('')
+  const [selectedValues, setSelectedValues] = useState<string[]>([])
+
+  const handleSelect = (values: string[]) => {
+    setSelectedValues(values)
+  }
 
   return (
     <Layout
       heading="What type of foods do you enjoy the most?"
-      onContinue={() => selectedValue !== '' && navigation.navigate('Step5')}
-      isContinueDisabled={selectedValue === ''}
+      subheading="Choose one or more options"
+      onContinue={() =>
+        selectedValues.length > 0 && navigation.navigate('Step5')
+      }
+      isContinueDisabled={selectedValues.length === 0}
     >
-      <OptionList
+      <OptionsList
         options={options}
-        selectedValue={selectedValue}
-        onSelect={setSelectedValue}
+        selectedValues={selectedValues}
+        onSelect={handleSelect}
       />
     </Layout>
   )

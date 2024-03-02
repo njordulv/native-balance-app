@@ -22,6 +22,7 @@ export default function Step2({ navigation }: { navigation: NavProps }) {
   return (
     <Layout
       heading="What is your goal with regard to weight management?"
+      subheading="Identify one key goal for yourself"
       onContinue={() => selectedValue !== '' && navigation.navigate('Step3')}
       isContinueDisabled={selectedValue === ''}
     >

@@ -1,10 +1,11 @@
-import { View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
 import GradientText from '@/components/GradientText'
 import colors from '@/utils/colors'
 
 type Props = {
   heading: string
+  subheading?: string
   children: React.ReactNode
   onContinue: () => void
   isContinueDisabled: boolean
@@ -12,18 +13,22 @@ type Props = {
 
 const Layout = ({
   heading,
+  subheading,
   children,
   onContinue,
   isContinueDisabled,
 }: Props) => {
   return (
     <View style={styles.container}>
-      <GradientText
-        style={styles.heading}
-        colors={[colors.purple, colors.blue]}
-      >
-        {heading}
-      </GradientText>
+      <View>
+        <GradientText
+          style={styles.heading}
+          colors={[colors.purple, colors.blue]}
+        >
+          {heading}
+        </GradientText>
+        <Text style={styles.subheading}>{subheading}</Text>
+      </View>
       <View style={styles.content}>
         {children}
         <ButtonOriginal
@@ -53,6 +58,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 32,
     textAlign: 'center',
+  },
+  subheading: {
+    fontFamily: 'Baloo400',
+    fontSize: 17,
+    lineHeight: 24,
+    textAlign: 'center',
+    color: colors.grey,
+    marginTop: 10,
   },
   content: {
     width: '100%',
