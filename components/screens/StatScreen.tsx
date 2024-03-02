@@ -5,6 +5,8 @@ import { AnimatedLabel } from '@/animations/AnimatedLabel'
 import { AnimatedPoints } from '@/animations/AnimatedPoints'
 import GradientText from '@/components/GradientText'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
+import { useSelector } from 'lib/redux/store'
+import { selectGender } from 'lib/redux/slices/stepSlice'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -14,6 +16,8 @@ type ParamsList = {
 type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function StatScreen({ navigation }: { navigation: NavProps }) {
+  const gender = useSelector(selectGender)
+
   const dataPointStart = () => {
     return <AnimatedPoints delay={100} pointStyle={styles.point2} />
   }
@@ -132,8 +136,8 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
         </View>
         <View>
           <Text style={styles.text}>
-            78% of men notice their initial visible improvements within four
-            weeks and achieve sustained success after three months.
+            78% of {gender} notice their initial visible improvements within
+            four weeks and achieve sustained success after three months.
           </Text>
         </View>
       </View>

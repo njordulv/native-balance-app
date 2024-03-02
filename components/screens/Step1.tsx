@@ -2,6 +2,8 @@ import { View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import GradientText from '@/components/GradientText'
 import ButtonImage from '@/components/buttons/ButtonImage'
+import { useDispatch } from 'lib/redux/store'
+import { setGender } from 'lib/redux/slices/stepSlice'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -11,6 +13,18 @@ type ParamsList = {
 type NavProps = StackNavigationProp<ParamsList, 'StatScreen'>
 
 export default function Step1({ navigation }: { navigation: NavProps }) {
+  const dispatch = useDispatch()
+
+  const ButtonHandlerMale = () => {
+    dispatch(setGender('men'))
+    navigation.navigate('StatScreen')
+  }
+
+  const ButtonHandlerFemale = () => {
+    dispatch(setGender('women'))
+    navigation.navigate('StatScreen')
+  }
+
   return (
     <View style={styles.container}>
       <GradientText
@@ -22,12 +36,12 @@ export default function Step1({ navigation }: { navigation: NavProps }) {
       <View style={styles.content}>
         <View style={styles.buttons}>
           <ButtonImage
-            onPress={() => navigation.navigate('StatScreen')}
+            onPress={ButtonHandlerMale}
             source={require('@/assets/fitness-man.png')}
             title="Man"
           />
           <ButtonImage
-            onPress={() => navigation.navigate('StatScreen')}
+            onPress={ButtonHandlerFemale}
             source={require('@/assets/fitness-woman.png')}
             title="Woman"
           />

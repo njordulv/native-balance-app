@@ -8,6 +8,8 @@ import {
 } from '@expo-google-fonts/baloo-2'
 import { NavigationContainer } from '@react-navigation/native'
 import Navigator from '@/components/Navigator'
+import { Provider } from 'react-redux'
+import { store } from 'lib/redux/store'
 import colors from '@/utils/colors'
 
 export default function App() {
@@ -23,12 +25,14 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <View style={styles.appContainer}>
-        <Navigator />
-        <StatusBar />
-      </View>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <View style={styles.appContainer}>
+          <Navigator />
+          <StatusBar />
+        </View>
+      </NavigationContainer>
+    </Provider>
   )
 }
 
