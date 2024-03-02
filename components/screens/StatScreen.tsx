@@ -15,15 +15,15 @@ type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function StatScreen({ navigation }: { navigation: NavProps }) {
   const dataPointStart = () => {
-    return <AnimatedPoints delay={100} labelStyle={styles.point2} />
+    return <AnimatedPoints delay={100} pointStyle={styles.point2} />
   }
 
   const dataPoint1 = () => {
-    return <AnimatedPoints delay={1600} labelStyle={styles.point1} />
+    return <AnimatedPoints delay={1600} pointStyle={styles.point1} />
   }
 
   const dataPoint2 = () => {
-    return <AnimatedPoints delay={1800} labelStyle={styles.point2} />
+    return <AnimatedPoints delay={1800} pointStyle={styles.point2} />
   }
 
   const dataPointDefault = () => {
@@ -36,7 +36,7 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
     )
   }
 
-  const Label1 = () => (
+  const labelOne = () => (
     <AnimatedLabel
       delay={1700}
       labelStyle={styles.label1}
@@ -45,7 +45,7 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
     />
   )
 
-  const Label2 = () => (
+  const labelTwo = () => (
     <AnimatedLabel
       delay={1900}
       labelStyle={styles.label2}
@@ -62,12 +62,12 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
     { value: 55, customDataPoint: dataPointDefault },
     {
       value: 82,
-      labelComponent: Label2,
+      labelComponent: labelTwo,
       customDataPoint: dataPointDefault,
     },
     {
       value: 85,
-      labelComponent: Label1,
+      labelComponent: labelOne,
       customDataPoint: dataPoint1,
     },
   ]
@@ -75,7 +75,7 @@ export default function StatScreen({ navigation }: { navigation: NavProps }) {
   const data2 = [
     { value: 60, customDataPoint: dataPointStart },
     { value: 54, customDataPoint: dataPointDefault },
-    { value: 37, customDataPoint: dataPointDefault },
+    { value: 36, customDataPoint: dataPointDefault },
     { value: 33, customDataPoint: dataPointDefault },
     { value: 31, customDataPoint: dataPointDefault },
     { value: 24, customDataPoint: dataPointDefault },
@@ -154,60 +154,28 @@ const styles = StyleSheet.create({
     left: -25,
   },
   point1: {
-    width: 18,
-    height: 18,
     backgroundColor: colors.red,
     borderColor: colors.background,
-    borderWidth: 4,
-    borderRadius: 10,
   },
   point2: {
-    width: 18,
-    height: 18,
     backgroundColor: colors.blue,
     borderColor: colors.background,
-    borderWidth: 4,
-    borderRadius: 10,
   },
   label1: {
-    position: 'absolute',
     width: 120,
     bottom: 105,
     right: 37,
-    backgroundColor: colors.transparentDark,
-    paddingHorizontal: 7,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-    borderRadius: 15,
-    overflow: 'hidden',
   },
   label2: {
-    position: 'absolute',
     width: 90,
     bottom: 20,
     right: -16,
-    backgroundColor: colors.transparentDark,
-    paddingHorizontal: 7,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    borderRadius: 15,
-    overflow: 'hidden',
-    zIndex: 2,
   },
   dot1: {
     backgroundColor: colors.red,
-    width: 8,
-    height: 8,
-    borderRadius: 8,
   },
   dot2: {
     backgroundColor: colors.blue,
-    width: 8,
-    height: 8,
-    borderRadius: 8,
   },
   heading: {
     fontFamily: 'Baloo500',

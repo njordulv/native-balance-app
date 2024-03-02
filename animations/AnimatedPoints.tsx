@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-import { Animated, View, StyleProp, ViewStyle } from 'react-native'
+import { Animated, View, StyleProp, ViewStyle, StyleSheet } from 'react-native'
 
 type AnimatedPointProps = {
   delay: number
-  labelStyle: StyleProp<ViewStyle>
+  pointStyle: StyleProp<ViewStyle>
 }
 
-export const AnimatedPoints = ({ delay, labelStyle }: AnimatedPointProps) => {
+export const AnimatedPoints = ({ delay, pointStyle }: AnimatedPointProps) => {
   const [visible, setVisible] = useState(false)
   const fadeAnim = useRef(new Animated.Value(0)).current
   const scaleAnim = useRef(new Animated.Value(0)).current
@@ -43,7 +43,16 @@ export const AnimatedPoints = ({ delay, labelStyle }: AnimatedPointProps) => {
         transform: [{ scale: scaleAnim }],
       }}
     >
-      <View style={labelStyle}></View>
+      <View style={[styles.point, pointStyle]}></View>
     </Animated.View>
   )
 }
+
+const styles = StyleSheet.create({
+  point: {
+    width: 16,
+    height: 16,
+    borderWidth: 4,
+    borderRadius: 10,
+  },
+})

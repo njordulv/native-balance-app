@@ -58,8 +58,8 @@ export const AnimatedLabel = ({
         transform: [{ scale: scaleAnim }],
       }}
     >
-      <View style={labelStyle}>
-        <View style={dotStyle}></View>
+      <View style={[styles.label, labelStyle]}>
+        <View style={[styles.dotPoint, dotStyle]}></View>
         <Text style={styles.labelText}>{text}</Text>
       </View>
     </Animated.View>
@@ -67,6 +67,21 @@ export const AnimatedLabel = ({
 }
 
 const styles = StyleSheet.create({
+  label: {
+    position: 'absolute',
+    overflow: 'hidden',
+    backgroundColor: colors.transparentDark,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    paddingHorizontal: 7,
+    borderRadius: 15,
+  },
+  dotPoint: {
+    width: 9,
+    height: 9,
+    borderRadius: 9,
+  },
   labelText: {
     fontFamily: 'Baloo500',
     fontSize: 13,
