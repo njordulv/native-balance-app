@@ -4,10 +4,18 @@ import Layout from '@/components/steps/Layout'
 import OptionList from '@/components/steps/OptionList'
 
 const options = [
-  { label: 'Weight loss', value: 'option1' },
+  { label: 'Weight loss', value: 'option1', name: 'scale-outline' },
   { label: 'Muscle gain', value: 'option2' },
-  { label: 'Maintaining current weight', value: 'option3' },
-  { label: 'Improving overall health', value: 'option4' },
+  {
+    label: 'Maintaining current weight',
+    value: 'option3',
+    name: 'arrow-back-circle-outline',
+  },
+  {
+    label: 'Improving overall health',
+    value: 'option4',
+    name: 'arrow-back-circle-outline',
+  },
 ]
 
 type ParamsList = {

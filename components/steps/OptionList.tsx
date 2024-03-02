@@ -4,6 +4,7 @@ import Option from '@/components/steps/Option'
 type OptionType = {
   label: string
   value: string
+  name?: string
 }
 
 type Props = {
@@ -21,6 +22,7 @@ const OptionList = ({ options, selectedValue, onSelect }: Props) => {
           label={option.label}
           selected={selectedValue === option.value}
           onSelect={() => onSelect(option.value)}
+          iconName={option.name}
         />
       ))}
     </View>
