@@ -26,10 +26,13 @@ const Option = ({ label, selected, icon, onSelect }: OptionProps) => {
 
 const styles = StyleSheet.create({
   option: {
-    paddingVertical: 13,
-    paddingHorizontal: 15,
+    paddingTop: 18,
+    paddingBottom: 13,
+    paddingHorizontal: 14,
     borderRadius: 28,
     borderWidth: 2,
+    display: 'flex',
+    justifyContent: 'center',
     borderColor: colors.purpleLight,
     backgroundColor: 'transparent',
   },
@@ -39,11 +42,13 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 17,
-    color: colors.white,
+    lineHeight: 22,
+    color: colors.color,
     fontFamily: 'Baloo400',
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
+    paddingRight: 26,
   },
   selectedText: {
     color: colors.white,
@@ -51,8 +56,8 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     right: 10,
-    top: '50%',
-    fontSize: 26,
+    top: '58%',
+    fontSize: 24,
     color: colors.color,
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
     textShadowOffset: { width: 1, height: 1 },

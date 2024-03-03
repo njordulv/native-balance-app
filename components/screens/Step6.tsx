@@ -17,7 +17,7 @@ type ParamsList = {
 
 type NavProps = StackNavigationProp<ParamsList, 'Step7'>
 
-export default function Step3({ navigation }: { navigation: NavProps }) {
+export default function Step6({ navigation }: { navigation: NavProps }) {
   const [selectedValue, setSelectedValue] = useState('')
 
   return (

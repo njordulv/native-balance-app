@@ -8,6 +8,10 @@ import Step3 from '@/components/screens/Step3'
 import Step4 from '@/components/screens/Step4'
 import Step5 from '@/components/screens/Step5'
 import Step6 from '@/components/screens/Step6'
+import Step7 from '@/components/screens/Step7'
+import Step8 from '@/components/screens/Step8'
+import Step9 from '@/components/screens/Step9'
+import Step10 from '@/components/screens/Step10'
 import StatScreen from '@/components/screens/StatScreen'
 import colors from '@/utils/colors'
 
@@ -20,6 +24,10 @@ type RootStackParamList = {
   Step4: undefined
   Step5: undefined
   Step6: undefined
+  Step7: undefined
+  Step8: undefined
+  Step9: undefined
+  Step10: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -103,6 +111,46 @@ export default function Navigator() {
           component={Step6}
           options={() => ({
             headerRight: () => <Text style={styles.steps}>6/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step7"
+          component={Step7}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>7/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step8"
+          component={Step8}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>8/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step9"
+          component={Step9}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>9/14</Text>,
+            headerRightContainerStyle: {
+              paddingRight: 10,
+            },
+          })}
+        />
+        <Stack.Screen
+          name="Step10"
+          component={Step10}
+          options={() => ({
+            headerRight: () => <Text style={styles.steps}>10/14</Text>,
             headerRightContainerStyle: {
               paddingRight: 10,
             },
