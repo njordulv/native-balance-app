@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
   icon: {
     position: 'absolute',
     right: 10,
-    top: '58%',
+    top: '50%',
+    marginTop: 3,
     fontSize: 24,
     color: colors.color,
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
