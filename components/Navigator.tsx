@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Ionicons } from '@expo/vector-icons'
+import Icon from 'react-native-vector-icons/Ionicons'
 import HomeScreen from '@/components/screens/HomeScreen'
 import Step1 from '@/components/screens/Step1'
 import Step2 from '@/components/screens/Step2'
@@ -32,7 +32,7 @@ export default function Navigator() {
           headerLeft: () =>
             navigation.canGoBack() && (
               <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Ionicons
+                <Icon
                   name="arrow-back-circle-outline"
                   size={34}
                   color={colors.color}

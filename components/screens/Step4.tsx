@@ -4,11 +4,11 @@ import Layout from '@/components/steps/Layout'
 import OptionsList from '@/components/steps/OptionsList'
 
 const options = [
-  { label: 'Vegetables', value: 'option1' },
-  { label: 'Fruits', value: 'option2' },
-  { label: 'Meat', value: 'option3' },
-  { label: 'Dairy products', value: 'option4' },
-  { label: 'Grains', value: 'option5' },
+  { label: 'Vegetables', value: 'option1', icon: 'chili-mild' },
+  { label: 'Fruits', value: 'option2', icon: 'fruit-cherries' },
+  { label: 'Meat', value: 'option3', icon: 'food-drumstick' },
+  { label: 'Dairy products', value: 'option4', icon: 'bottle-soda' },
+  { label: 'Grains', value: 'option5', icon: 'barley' },
 ]
 
 type ParamsList = {

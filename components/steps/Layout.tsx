@@ -7,16 +7,16 @@ type Props = {
   heading: string
   subheading?: string
   children: React.ReactNode
-  onContinue: () => void
   isContinueDisabled: boolean
+  onContinue: () => void
 }
 
 const Layout = ({
   heading,
   subheading,
   children,
-  onContinue,
   isContinueDisabled,
+  onContinue,
 }: Props) => {
   return (
     <View style={styles.container}>
@@ -33,8 +33,8 @@ const Layout = ({
         {children}
         <ButtonOriginal
           title="Continue"
-          onPress={onContinue}
           disabled={isContinueDisabled}
+          onPress={onContinue}
         />
       </View>
     </View>

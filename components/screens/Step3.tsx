@@ -4,10 +4,10 @@ import Layout from '@/components/steps/Layout'
 import OptionList from '@/components/steps/OptionList'
 
 const options = [
-  { label: 'Three times a day', value: 'option1' },
-  { label: 'More than three times a day', value: 'option2' },
-  { label: 'Once a day', value: 'option3' },
-  { label: 'Less than once a day', value: 'option4' },
+  { label: 'Three times a day', value: 'option1', icon: 'dice-3' },
+  { label: 'More than three times a day', value: 'option2', icon: 'dice-5' },
+  { label: 'Once a day', value: 'option3', icon: 'dice-1' },
+  { label: 'Less than once a day', value: 'option4', icon: 'cancel' },
 ]
 
 type ParamsList = {
