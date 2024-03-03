@@ -1,7 +1,9 @@
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { ScreenParams, ScreenItems } from 'types/screens'
 import Icon from 'react-native-vector-icons/Ionicons'
 import HomeScreen from '@/components/screens/HomeScreen'
+import StatScreen from '@/components/screens/StatScreen'
 import Step1 from '@/components/screens/Step1'
 import Step2 from '@/components/screens/Step2'
 import Step3 from '@/components/screens/Step3'
@@ -13,26 +15,25 @@ import Step8 from '@/components/screens/Step8'
 import Step9 from '@/components/screens/Step9'
 import Step10 from '@/components/screens/Step10'
 import Step11 from '@/components/screens/Step11'
-import StatScreen from '@/components/screens/StatScreen'
 import colors from '@/utils/colors'
 
-type RootStackParamList = {
-  Home: undefined
-  Step1: undefined
-  StatScreen: undefined
-  Step2: undefined
-  Step3: undefined
-  Step4: undefined
-  Step5: undefined
-  Step6: undefined
-  Step7: undefined
-  Step8: undefined
-  Step9: undefined
-  Step10: undefined
-  Step11: undefined
-}
+const SCREENS: ScreenItems[] = [
+  { name: 'Home', component: HomeScreen },
+  { name: 'Step1', component: Step1, step: '1/14' },
+  { name: 'StatScreen', component: StatScreen },
+  { name: 'Step2', component: Step2, step: '2/14' },
+  { name: 'Step3', component: Step3, step: '3/14' },
+  { name: 'Step4', component: Step4, step: '4/14' },
+  { name: 'Step5', component: Step5, step: '5/14' },
+  { name: 'Step6', component: Step6, step: '6/14' },
+  { name: 'Step7', component: Step7, step: '7/14' },
+  { name: 'Step8', component: Step8, step: '8/14' },
+  { name: 'Step9', component: Step9, step: '9/14' },
+  { name: 'Step10', component: Step10, step: '10/14' },
+  { name: 'Step11', component: Step11, step: '11/14' },
+]
 
-const Stack = createNativeStackNavigator<RootStackParamList>()
+const Stack = createNativeStackNavigator<ScreenParams>()
 
 export default function Navigator() {
   return (
@@ -51,123 +52,24 @@ export default function Navigator() {
             ),
           headerTitle: '',
           headerTintColor: colors.color,
-          headerStyle: {
-            backgroundColor: colors.background,
-          },
+          headerStyle: { backgroundColor: colors.background },
+          headerRightContainerStyle: { paddingRight: 10 },
         })}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="Step1"
-          component={Step1}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>1/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen name="StatScreen" component={StatScreen} />
-        <Stack.Screen
-          name="Step2"
-          component={Step2}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>2/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step3"
-          component={Step3}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>3/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step4"
-          component={Step4}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>4/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step5"
-          component={Step5}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>5/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step6"
-          component={Step6}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>6/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step7"
-          component={Step7}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>7/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step8"
-          component={Step8}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>8/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step9"
-          component={Step9}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>9/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step10"
-          component={Step10}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>10/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
-        <Stack.Screen
-          name="Step11"
-          component={Step11}
-          options={() => ({
-            headerRight: () => <Text style={styles.steps}>11/14</Text>,
-            headerRightContainerStyle: {
-              paddingRight: 10,
-            },
-          })}
-        />
+        {SCREENS.map(({ name, component, step }) => (
+          <Stack.Screen
+            key={name}
+            name={name}
+            component={component}
+            options={
+              step
+                ? {
+                    headerRight: () => <Text style={styles.steps}>{step}</Text>,
+                  }
+                : {}
+            }
+          />
+        ))}
       </Stack.Navigator>
     </View>
   )
