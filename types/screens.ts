@@ -1,7 +1,7 @@
 export type ScreenParams = {
   Home: undefined
+  Statistic: undefined
   Step1: undefined
-  StatScreen: undefined
   Step2: undefined
   Step3: undefined
   Step4: undefined

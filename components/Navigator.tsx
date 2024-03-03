@@ -2,25 +2,27 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ScreenParams, ScreenItems } from 'types/screens'
 import Icon from 'react-native-vector-icons/Ionicons'
-import HomeScreen from '@/components/screens/HomeScreen'
-import StatScreen from '@/components/screens/StatScreen'
-import Step1 from '@/components/screens/Step1'
-import Step2 from '@/components/screens/Step2'
-import Step3 from '@/components/screens/Step3'
-import Step4 from '@/components/screens/Step4'
-import Step5 from '@/components/screens/Step5'
-import Step6 from '@/components/screens/Step6'
-import Step7 from '@/components/screens/Step7'
-import Step8 from '@/components/screens/Step8'
-import Step9 from '@/components/screens/Step9'
-import Step10 from '@/components/screens/Step10'
-import Step11 from '@/components/screens/Step11'
 import colors from '@/utils/colors'
+import {
+  Home,
+  Statistic,
+  Step1,
+  Step2,
+  Step3,
+  Step4,
+  Step5,
+  Step6,
+  Step7,
+  Step8,
+  Step9,
+  Step10,
+  Step11,
+} from '@/components/screens'
 
 const SCREENS: ScreenItems[] = [
-  { name: 'Home', component: HomeScreen },
+  { name: 'Home', component: Home },
   { name: 'Step1', component: Step1, step: '1/14' },
-  { name: 'StatScreen', component: StatScreen },
+  { name: 'Statistic', component: Statistic },
   { name: 'Step2', component: Step2, step: '2/14' },
   { name: 'Step3', component: Step3, step: '3/14' },
   { name: 'Step4', component: Step4, step: '4/14' },

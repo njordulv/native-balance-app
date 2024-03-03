@@ -12,12 +12,12 @@ type RootStackParamList = {
   Account: undefined
 }
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
 
-export default function HomeScreen({
+export default function Home({
   navigation,
 }: {
-  navigation: HomeScreenNavigationProp
+  navigation: HomeNavigationProp
 }) {
   return (
     <View style={styles.navigation}>

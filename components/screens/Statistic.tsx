@@ -5,9 +5,9 @@ import { AnimatedLabel } from '@/animations/AnimatedLabel'
 import { AnimatedPoints } from '@/animations/AnimatedPoints'
 import { useSelector } from '@/redux/store'
 import { selectGender } from '@/slices/stepSlice'
+import { randomValues } from '@/utils/functions'
 import GradientText from '@/components/GradientText'
 import ButtonOriginal from '@/components/buttons/ButtonOriginal'
-import { randomValues } from '@/utils/functions'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -16,7 +16,7 @@ type ParamsList = {
 
 type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
-export default function StatScreen({ navigation }: { navigation: NavProps }) {
+export default function Statistic({ navigation }: { navigation: NavProps }) {
   const gender = useSelector(selectGender)
 
   const dataPointStart = () => {

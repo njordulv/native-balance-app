@@ -5,6 +5,7 @@
     "paths": {
       "@/components/*": ["./components/*"],
       "@/animations/*": ["./animations/*"],
+      "@/screens/*": ["./components/screens/*"],
       "@/utils/*": ["./utils/*"],
       "@/assets/*": ["./assets/*"],
       "@/redux/*": ["./lib/redux/*"],
