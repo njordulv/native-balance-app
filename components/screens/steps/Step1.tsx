@@ -33,7 +33,7 @@ export default function Step1({ navigation }: { navigation: NavProps }) {
       >
         What is your gender?
       </GradientText>
-      <View style={styles.content}>
+      <View>
         <View style={styles.buttons}>
           <ButtonImage
             onPress={ButtonHandlerMale}
@@ -63,9 +63,6 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     paddingTop: 15,
   },
-  content: {
-    width: '100%',
-  },
   heading: {
     fontFamily: 'Baloo500',
     fontSize: 24,
@@ -73,10 +70,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttons: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 20,
+    gap: 10,
   },
 })

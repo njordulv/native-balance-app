@@ -1,4 +1,4 @@
-import { View, StatusBar, StyleSheet } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import {
   useFonts,
   Baloo2_400Regular,
@@ -11,7 +11,6 @@ import { PaperProvider } from 'react-native-paper'
 import { Provider as StoreProvider } from 'react-redux'
 import { store } from 'lib/redux/store'
 import Navigator from '@/components/Navigator'
-import colors from '@/utils/colors'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -29,19 +28,12 @@ export default function App() {
     <StoreProvider store={store}>
       <PaperProvider>
         <NavigationContainer>
-          <View style={styles.appContainer}>
+          <View style={{ flex: 1 }}>
             <Navigator />
-            <StatusBar />
+            <StatusBar barStyle="light-content" />
           </View>
         </NavigationContainer>
       </PaperProvider>
     </StoreProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-})

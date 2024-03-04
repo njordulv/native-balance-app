@@ -41,14 +41,6 @@ export default function Statistic({ navigation }: { navigation: NavProps }) {
     )
   }
 
-  const labelTitle = (val: string) => {
-    return (
-      <View style={styles.labelTitle}>
-        <Text style={styles.labelTitleText}>{val}</Text>
-      </View>
-    )
-  }
-
   const labelOne = () => (
     <AnimatedLabel
       delay={1700}
@@ -70,7 +62,6 @@ export default function Statistic({ navigation }: { navigation: NavProps }) {
   const data1 = [
     {
       value: 60,
-      labelComponent: () => labelTitle('Weight'),
       customDataPoint: dataPointDefault,
     },
     { value: 58, customDataPoint: dataPointDefault },
@@ -118,21 +109,26 @@ export default function Statistic({ navigation }: { navigation: NavProps }) {
             curved
             isAnimated
             animateTogether
-            hideAxesAndRules
+            noOfSections={5}
             animationDuration={2000}
+            initialSpacing={7}
+            width={330}
             height={220}
-            spacing={52}
             data={data1}
             data2={data2}
-            color1={colors.red}
+            rulesColor={colors.dark}
+            color1={colors.purple}
             color2={colors.blue}
-            startFillColor1={colors.red}
+            startFillColor1={colors.purple}
             startFillColor2={colors.blue}
-            endFillColor1={colors.red}
+            endFillColor1={colors.purple}
             endFillColor2={colors.blue}
-            startOpacity={0.6}
+            startOpacity={0.9}
             endOpacity={0.2}
             thickness={2}
+            yAxisTextStyle={{ color: colors.grey, fontSize: 12 }}
+            yAxisColor={colors.background}
+            xAxisColor={colors.background}
           />
         </View>
         <View>
@@ -159,34 +155,25 @@ const styles = StyleSheet.create({
     display: 'flex',
     gap: 20,
     justifyContent: 'space-between',
+    backgroundColor: colors.backgroundDarker,
     alignItems: 'center',
-    backgroundColor: colors.background,
     paddingBottom: 50,
     paddingTop: 15,
   },
   content: {
     width: '100%',
+    paddingHorizontal: 22,
   },
   chart: {
-    position: 'relative',
-    left: -25,
+    marginTop: 20,
   },
   point1: {
-    backgroundColor: colors.red,
-    borderColor: colors.background,
+    backgroundColor: colors.purple,
+    borderColor: colors.backgroundDarker,
   },
   point2: {
     backgroundColor: colors.blue,
-    borderColor: colors.background,
-  },
-  labelTitle: {
-    position: 'absolute',
-    left: 22,
-    bottom: 220,
-  },
-  labelTitleText: {
-    color: colors.color,
-    fontFamily: 'Baloo500',
+    borderColor: colors.backgroundDarker,
   },
   label1: {
     width: 120,
@@ -199,7 +186,7 @@ const styles = StyleSheet.create({
     right: -16,
   },
   dot1: {
-    backgroundColor: colors.red,
+    backgroundColor: colors.purple,
   },
   dot2: {
     backgroundColor: colors.blue,
@@ -209,7 +196,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 32,
     textAlign: 'center',
-    paddingHorizontal: 22,
   },
   text: {
     fontFamily: 'Baloo400',

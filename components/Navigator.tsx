@@ -20,9 +20,17 @@ import {
 } from '@/components/screens'
 
 const SCREENS: ScreenItems[] = [
-  { name: 'Home', component: Home },
+  {
+    name: 'Home',
+    component: Home,
+    headerStyle: { backgroundColor: colors.background },
+  },
   { name: 'Step1', component: Step1, step: '1/14' },
-  { name: 'Statistic', component: Statistic },
+  {
+    name: 'Statistic',
+    component: Statistic,
+    headerStyle: { backgroundColor: colors.backgroundDarker },
+  },
   { name: 'Step2', component: Step2, step: '2/14' },
   { name: 'Step3', component: Step3, step: '3/14' },
   { name: 'Step4', component: Step4, step: '4/14' },
@@ -54,22 +62,21 @@ export default function Navigator() {
             ),
           headerTitle: '',
           headerTintColor: colors.color,
-          headerStyle: { backgroundColor: colors.background },
-          headerRightContainerStyle: { paddingRight: 10 },
+          headerLargeTitleShadowVisible: false,
         })}
       >
-        {SCREENS.map(({ name, component, step }) => (
+        {SCREENS.map(({ name, component, step, headerStyle }) => (
           <Stack.Screen
             key={name}
             name={name}
             component={component}
-            options={
-              step
-                ? {
-                    headerRight: () => <Text style={styles.steps}>{step}</Text>,
-                  }
-                : {}
-            }
+            options={{
+              headerRight: () =>
+                step ? <Text style={styles.steps}>{step}</Text> : null,
+              headerStyle: headerStyle || {
+                backgroundColor: colors.background,
+              },
+            }}
           />
         ))}
       </Stack.Navigator>

@@ -13,7 +13,7 @@ const colors = {
   red: '#e74c3c',
   orange: 'orange',
   black: '#151515',
-  dark: '#666',
+  dark: '#444',
   grey: '#aaa',
   gradient: 'pink 15%, green 25%, blue 75%, purple 90%',
   gradient2: 'purple 30%, blue 65%',

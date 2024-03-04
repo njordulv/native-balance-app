@@ -26,7 +26,6 @@ const ButtonImage = ({ title, source, onPress }: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    height: undefined,
     backgroundColor: colors.backgroundDarker,
     padding: 10,
     borderColor: 'transparent',
@@ -34,8 +33,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   image: {
-    width: 130,
-    height: undefined,
+    width: 'auto',
+    height: 220,
     aspectRatio: 0.6,
   },
   caption: {
