@@ -1,7 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import ButtonOriginal from '@/components/buttons/ButtonOriginal'
-import ButtonTransparent from '@/components/buttons/ButtonTransparent'
+import ButtonCustom from '@/components/buttons/ButtonCustom'
 import GradientText from '@/components/GradientText'
 import Logo from '@/components/Logo'
 import colors from '@/utils/colors'
@@ -36,13 +35,15 @@ export default function Home({
         </View>
       </View>
       <View style={styles.buttons}>
-        <ButtonOriginal
+        <ButtonCustom
           title="Start Now"
           onPress={() => navigation.navigate('Step1')}
+          mode="contained"
         />
-        <ButtonTransparent
+        <ButtonCustom
           title="I have an account"
           onPress={() => navigation.navigate('Account')}
+          mode="outlined"
           disabled={true}
         />
       </View>

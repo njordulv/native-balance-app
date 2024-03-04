@@ -7,22 +7,22 @@ import ButtonImage from '@/components/buttons/ButtonImage'
 import colors from '@/utils/colors'
 
 type ParamsList = {
-  StatScreen: undefined
+  Statistic: undefined
 }
 
-type NavProps = StackNavigationProp<ParamsList, 'StatScreen'>
+type NavProps = StackNavigationProp<ParamsList, 'Statistic'>
 
 export default function Step1({ navigation }: { navigation: NavProps }) {
   const dispatch = useDispatch()
 
   const ButtonHandlerMale = () => {
     dispatch(setGender('men'))
-    navigation.navigate('StatScreen')
+    navigation.navigate('Statistic')
   }
 
   const ButtonHandlerFemale = () => {
     dispatch(setGender('women'))
-    navigation.navigate('StatScreen')
+    navigation.navigate('Statistic')
   }
 
   return (

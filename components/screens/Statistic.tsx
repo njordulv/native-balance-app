@@ -7,7 +7,7 @@ import { useSelector } from '@/redux/store'
 import { selectGender } from '@/slices/stepSlice'
 import { randomValues } from '@/utils/functions'
 import GradientText from '@/components/GradientText'
-import ButtonOriginal from '@/components/buttons/ButtonOriginal'
+import ButtonCustom from '@/components/buttons/ButtonCustom'
 import colors from '@/utils/colors'
 
 type ParamsList = {
@@ -143,8 +143,9 @@ export default function Statistic({ navigation }: { navigation: NavProps }) {
         </View>
       </View>
       <View style={{ width: '100%', paddingHorizontal: 22 }}>
-        <ButtonOriginal
+        <ButtonCustom
           title="Continue"
+          mode="contained"
           onPress={() => navigation.navigate('Step2')}
         />
       </View>

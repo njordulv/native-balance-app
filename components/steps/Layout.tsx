@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native'
-import ButtonOriginal from '@/components/buttons/ButtonOriginal'
+import ButtonCustom from '@/components/buttons/ButtonCustom'
 import GradientText from '@/components/GradientText'
 import colors from '@/utils/colors'
 
@@ -31,10 +31,11 @@ const Layout = ({
       </View>
       <View style={styles.content}>
         {children}
-        <ButtonOriginal
+        <ButtonCustom
           title="Continue"
-          disabled={isContinueDisabled}
+          mode="contained"
           onPress={onContinue}
+          disabled={isContinueDisabled}
         />
       </View>
     </View>
