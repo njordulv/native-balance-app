@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper'
 import colors from '@/utils/colors'
 
@@ -15,11 +15,12 @@ const ButtonCustom = ({ title, mode, disabled, onPress }: Props) => {
   return (
     <Button
       style={buttonStyle}
+      labelStyle={styles.text}
       mode={mode}
       disabled={disabled}
       onPress={onPress}
     >
-      <Text style={styles.text}>{title}</Text>
+      {title}
     </Button>
   )
 }
@@ -27,6 +28,7 @@ const ButtonCustom = ({ title, mode, disabled, onPress }: Props) => {
 const styles = StyleSheet.create({
   button: {
     height: 56,
+    alignItems: 'center',
     justifyContent: 'center',
     color: colors.white,
     borderColor: colors.purple,
@@ -36,6 +38,7 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   text: {
+    width: '100%',
     color: colors.white,
     fontFamily: 'Baloo500',
     fontSize: 22,
