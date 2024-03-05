@@ -1,8 +1,6 @@
-import { useState, useCallback } from 'react'
-import { useFocusEffect } from '@react-navigation/native'
+import { useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { useDispatch } from '@/redux/store'
-import { setStep } from '@/slices/stepSlice'
+import { useStepProgress } from '@/hooks/useStepProgress'
 import Layout from '@/components/steps/Layout'
 import OptionList from '@/components/steps/OptionList'
 
@@ -21,13 +19,7 @@ type NavProps = StackNavigationProp<ParamsList, 'Step4'>
 
 export default function Step3({ navigation }: { navigation: NavProps }) {
   const [selectedValue, setSelectedValue] = useState('')
-  const dispatch = useDispatch()
-
-  useFocusEffect(
-    useCallback(() => {
-      dispatch(setStep(3))
-    }, [dispatch])
-  )
+  useStepProgress({ step: 3, visible: true })
 
   return (
     <Layout

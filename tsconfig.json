@@ -6,6 +6,7 @@
       "@/components/*": ["./components/*"],
       "@/animations/*": ["./animations/*"],
       "@/screens/*": ["./components/screens/*"],
+      "@/hooks/*": ["./hooks/*"],
       "@/utils/*": ["./utils/*"],
       "@/assets/*": ["./assets/*"],
       "@/redux/*": ["./lib/redux/*"],

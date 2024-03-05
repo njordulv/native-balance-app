@@ -1,9 +1,6 @@
-import { useCallback } from 'react'
-import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useStepProgress } from '@/hooks/useStepProgress'
 import { Text, View, StyleSheet } from 'react-native'
-import { useDispatch } from '@/redux/store'
-import { setStep } from '@/slices/stepSlice'
 import { LineChart } from 'react-native-gifted-charts'
 import { AnimatedLabel } from '@/animations/AnimatedLabel'
 import { AnimatedPoints } from '@/animations/AnimatedPoints'
@@ -22,13 +19,7 @@ type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function Statistic({ navigation }: { navigation: NavProps }) {
   const gender = useSelector(selectGender)
-  const dispatch = useDispatch()
-
-  useFocusEffect(
-    useCallback(() => {
-      dispatch(setStep(1))
-    }, [dispatch])
-  )
+  useStepProgress({ step: 0, visible: false })
 
   const dataPointStart = () => {
     return <AnimatedPoints delay={200} pointStyle={styles.point2} />
@@ -169,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundDarker,
     alignItems: 'center',
     paddingBottom: 50,
-    paddingTop: 15,
+    paddingTop: 25,
   },
   content: {
     width: '100%',

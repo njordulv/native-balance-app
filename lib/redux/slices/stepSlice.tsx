@@ -4,12 +4,14 @@ interface StepState {
   gender: string
   step: number
   steps: number
+  visible: boolean
 }
 
 const initialState: StepState = {
   gender: '',
   step: 0,
   steps: 11,
+  visible: true,
 }
 
 const stepSlice = createSlice({
@@ -25,13 +27,17 @@ const stepSlice = createSlice({
     setSteps(state, action) {
       state.steps = action.payload
     },
+    setVisible(state, action) {
+      state.visible = action.payload
+    },
   },
 })
 
-export const { setGender, setStep, setSteps } = stepSlice.actions
+export const { setGender, setStep, setSteps, setVisible } = stepSlice.actions
 
 export const selectGender = (state: { step: StepState }) => state.step.gender
 export const selectStep = (state: { step: StepState }) => state.step.step
 export const selectSteps = (state: { step: StepState }) => state.step.steps
+export const selectVisible = (state: { step: StepState }) => state.step.visible
 
 export default stepSlice.reducer

@@ -1,15 +1,21 @@
 import { View, StyleSheet } from 'react-native'
 import { useSelector } from '@/redux/store'
-import { selectStep, selectSteps } from '@/slices/stepSlice'
+import { selectStep, selectSteps, selectVisible } from '@/slices/stepSlice'
 import StepProgress from '@/components/StepProgress'
 
 export default function Top() {
   const stepCurrent = useSelector(selectStep)
   const stepsTotal = useSelector(selectSteps)
+  const visible = useSelector(selectVisible)
 
   return (
     <View style={styles.container}>
-      <StepProgress step={stepCurrent} steps={stepsTotal} height={5} />
+      <StepProgress
+        step={stepCurrent}
+        steps={stepsTotal}
+        height={5}
+        visibility={visible}
+      />
     </View>
   )
 }

@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingHorizontal: 22,
     paddingBottom: 50,
-    paddingTop: 15,
+    paddingTop: 25,
   },
   heading: {
     fontFamily: 'Baloo500',

@@ -1,9 +1,6 @@
-import { useCallback } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { useDispatch } from '@/redux/store'
-import { setStep } from '@/slices/stepSlice'
+import { useStepProgress } from '@/hooks/useStepProgress'
 import ButtonCustom from '@/components/buttons/ButtonCustom'
 import GradientText from '@/components/GradientText'
 import Logo from '@/components/Logo'
@@ -22,13 +19,7 @@ export default function Home({
 }: {
   navigation: HomeNavigationProp
 }) {
-  const dispatch = useDispatch()
-
-  useFocusEffect(
-    useCallback(() => {
-      dispatch(setStep(0))
-    }, [dispatch])
-  )
+  useStepProgress({ step: 0, visible: false })
 
   return (
     <View style={styles.navigation}>
