@@ -19,7 +19,7 @@ type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function Statistic({ navigation }: { navigation: NavProps }) {
   const gender = useSelector(selectGender)
-  useStepProgress({ step: 0, visible: false })
+  useStepProgress({ step: 1, visible: false })
 
   const dataPointStart = () => {
     return <AnimatedPoints delay={200} pointStyle={styles.point2} />

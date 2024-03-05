@@ -17,7 +17,6 @@ export default function StepProgress({
 }: ProgProps) {
   const [width, setWidth] = useState(0)
   const animatedValue = useRef(new Animated.Value(-1000)).current
-  const indicator = useRef(new Animated.Value(-1000)).current
 
   useEffect(() => {
     Animated.timing(animatedValue, {
@@ -31,17 +30,17 @@ export default function StepProgress({
     <View style={styles.container}>
       {visibility && (
         <>
-          <Text
-            style={{
-              fontFamily: 'Baloo400',
-              color: colors.white,
-              fontSize: 16,
-              lineHeight: 22,
-              alignSelf: 'flex-end',
-            }}
-          >
-            {step} / {steps}
-          </Text>
+          <View style={styles.stepWrap}>
+            <View>
+              <Text style={styles.step}>{step}</Text>
+            </View>
+            <View>
+              <Text style={styles.divider}>{'/'}</Text>
+            </View>
+            <View>
+              <Text style={styles.steps}>{steps}</Text>
+            </View>
+          </View>
           <View
             onLayout={(e) => {
               const newWidth = e.nativeEvent.layout.width
@@ -50,19 +49,19 @@ export default function StepProgress({
             style={{
               height,
               borderRadius: height,
-              backgroundColor: colors.blue,
+              backgroundColor: colors.dark,
               overflow: 'hidden',
             }}
           >
             <Animated.View
               style={{
-                height,
-                width: '100%',
-                borderRadius: height,
                 position: 'absolute',
                 left: 0,
                 top: 0,
-                backgroundColor: colors.purple,
+                width: '100%',
+                backgroundColor: colors.blue,
+                height,
+                borderRadius: height,
                 transform: [{ translateX: animatedValue }],
               }}
             />
@@ -78,5 +77,33 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     gap: 5,
+  },
+  stepWrap: {
+    fontFamily: 'Baloo400',
+    color: colors.white,
+    fontSize: 16,
+    lineHeight: 22,
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 2,
+    alignSelf: 'flex-end',
+  },
+  step: {
+    fontFamily: 'Baloo500',
+    color: colors.white,
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  divider: {
+    fontFamily: 'Baloo400',
+    color: colors.grey,
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  steps: {
+    fontFamily: 'Baloo500',
+    color: colors.grey,
+    fontSize: 16,
+    lineHeight: 22,
   },
 })
