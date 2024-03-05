@@ -23,7 +23,7 @@ export default function Top() {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 55,
+    top: 56,
     right: 0,
     left: 0,
     marginLeft: 60,

@@ -76,13 +76,9 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 5,
+    gap: 2,
   },
   stepWrap: {
-    fontFamily: 'Baloo400',
-    color: colors.white,
-    fontSize: 16,
-    lineHeight: 22,
     display: 'flex',
     flexDirection: 'row',
     gap: 2,
@@ -92,18 +88,18 @@ const styles = StyleSheet.create({
     fontFamily: 'Baloo500',
     color: colors.white,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
   divider: {
     fontFamily: 'Baloo400',
     color: colors.grey,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
   steps: {
     fontFamily: 'Baloo500',
     color: colors.grey,
     fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
   },
 })
