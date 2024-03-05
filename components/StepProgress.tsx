@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { View, Text, Animated, StyleSheet } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import colors from '@/utils/colors'
 
 type ProgProps = {
@@ -64,7 +65,21 @@ export default function StepProgress({
                 borderRadius: height,
                 transform: [{ translateX: animatedValue }],
               }}
-            />
+            >
+              <LinearGradient
+                start={{ x: 0.1, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                colors={[colors.purple, colors.blue]}
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 0,
+                  width: '100%',
+                  height,
+                  borderRadius: height,
+                }}
+              ></LinearGradient>
+            </Animated.View>
           </View>
         </>
       )}
