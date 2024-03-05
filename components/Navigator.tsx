@@ -1,7 +1,9 @@
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ScreenParams, ScreenItems } from 'types/screens'
 import Icon from 'react-native-vector-icons/Ionicons'
+import HeaderRight from './HeaderRight'
+import Top from '@/components/Top'
 import colors from '@/utils/colors'
 import {
   Home,
@@ -19,35 +21,36 @@ import {
   Step11,
 } from '@/components/screens'
 
-const SCREENS: ScreenItems[] = [
-  {
-    name: 'Home',
-    component: Home,
-    headerStyle: { backgroundColor: colors.background },
-  },
-  { name: 'Step1', component: Step1, step: '1/14' },
-  {
-    name: 'Statistic',
-    component: Statistic,
-    headerStyle: { backgroundColor: colors.backgroundDarker },
-  },
-  { name: 'Step2', component: Step2, step: '2/14' },
-  { name: 'Step3', component: Step3, step: '3/14' },
-  { name: 'Step4', component: Step4, step: '4/14' },
-  { name: 'Step5', component: Step5, step: '5/14' },
-  { name: 'Step6', component: Step6, step: '6/14' },
-  { name: 'Step7', component: Step7, step: '7/14' },
-  { name: 'Step8', component: Step8, step: '8/14' },
-  { name: 'Step9', component: Step9, step: '9/14' },
-  { name: 'Step10', component: Step10, step: '10/14' },
-  { name: 'Step11', component: Step11, step: '11/14' },
-]
-
 const Stack = createNativeStackNavigator<ScreenParams>()
 
 export default function Navigator() {
+  const SCREENS: ScreenItems[] = [
+    {
+      name: 'Home',
+      component: Home,
+      headerStyle: { backgroundColor: colors.background },
+    },
+    { name: 'Step1', component: Step1 },
+    {
+      name: 'Statistic',
+      component: Statistic,
+      headerStyle: { backgroundColor: colors.backgroundDarker },
+    },
+    { name: 'Step2', component: Step2 },
+    { name: 'Step3', component: Step3 },
+    { name: 'Step4', component: Step4 },
+    { name: 'Step5', component: Step5 },
+    { name: 'Step6', component: Step6 },
+    { name: 'Step7', component: Step7 },
+    { name: 'Step8', component: Step8 },
+    { name: 'Step9', component: Step9 },
+    { name: 'Step10', component: Step10 },
+    { name: 'Step11', component: Step11 },
+  ]
+
   return (
     <View style={styles.navigatorContainer}>
+      <Top />
       <Stack.Navigator
         screenOptions={({ navigation }) => ({
           headerLeft: () =>
@@ -65,14 +68,13 @@ export default function Navigator() {
           headerLargeTitleShadowVisible: false,
         })}
       >
-        {SCREENS.map(({ name, component, step, headerStyle }) => (
+        {SCREENS.map(({ name, component, headerStyle }) => (
           <Stack.Screen
             key={name}
             name={name}
             component={component}
             options={{
-              headerRight: () =>
-                step ? <Text style={styles.steps}>{step}</Text> : null,
+              headerRight: () => <HeaderRight />,
               headerStyle: headerStyle || {
                 backgroundColor: colors.background,
               },
@@ -87,6 +89,7 @@ export default function Navigator() {
 const styles = StyleSheet.create({
   navigatorContainer: {
     flex: 1,
+    position: 'relative',
   },
   steps: {
     fontFamily: 'Baloo400',

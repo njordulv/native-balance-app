@@ -1,5 +1,9 @@
-import { Text, View, StyleSheet } from 'react-native'
+import { useCallback } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { Text, View, StyleSheet } from 'react-native'
+import { useDispatch } from '@/redux/store'
+import { setStep } from '@/slices/stepSlice'
 import { LineChart } from 'react-native-gifted-charts'
 import { AnimatedLabel } from '@/animations/AnimatedLabel'
 import { AnimatedPoints } from '@/animations/AnimatedPoints'
@@ -18,6 +22,13 @@ type NavProps = StackNavigationProp<ParamsList, 'Step2'>
 
 export default function Statistic({ navigation }: { navigation: NavProps }) {
   const gender = useSelector(selectGender)
+  const dispatch = useDispatch()
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(setStep(1))
+    }, [dispatch])
+  )
 
   const dataPointStart = () => {
     return <AnimatedPoints delay={200} pointStyle={styles.point2} />
@@ -112,7 +123,7 @@ export default function Statistic({ navigation }: { navigation: NavProps }) {
             noOfSections={5}
             animationDuration={2000}
             initialSpacing={7}
-            width={330}
+            width={350}
             height={220}
             data={data1}
             data2={data2}
@@ -166,6 +177,7 @@ const styles = StyleSheet.create({
   },
   chart: {
     marginTop: 20,
+    left: -10,
   },
   point1: {
     backgroundColor: colors.purple,

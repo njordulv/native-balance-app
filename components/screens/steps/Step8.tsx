@@ -1,5 +1,8 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
+import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useDispatch } from '@/redux/store'
+import { setStep } from '@/slices/stepSlice'
 import Layout from '@/components/steps/Layout'
 import OptionList from '@/components/steps/OptionList'
 
@@ -17,6 +20,13 @@ type NavProps = StackNavigationProp<ParamsList, 'Step9'>
 
 export default function Step8({ navigation }: { navigation: NavProps }) {
   const [selectedValue, setSelectedValue] = useState('')
+  const dispatch = useDispatch()
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(setStep(8))
+    }, [dispatch])
+  )
 
   return (
     <Layout

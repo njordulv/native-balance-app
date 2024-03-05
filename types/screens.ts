@@ -17,6 +17,5 @@ export type ScreenParams = {
 export type ScreenItems = {
   name: keyof ScreenParams
   component: React.ComponentType<any>
-  step?: string
   headerStyle?: any
 }

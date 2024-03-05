@@ -71,6 +71,11 @@ const styles = StyleSheet.create({
   content: {
     width: '100%',
   },
+  progressBar: {
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: colors.blue,
+  },
 })
 
 export default Layout

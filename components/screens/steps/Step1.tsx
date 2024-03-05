@@ -1,7 +1,9 @@
+import { useCallback } from 'react'
 import { View, StyleSheet } from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useDispatch } from '@/redux/store'
-import { setGender } from '@/slices/stepSlice'
+import { setGender, setStep } from '@/slices/stepSlice'
 import GradientText from '@/components/GradientText'
 import ButtonImage from '@/components/buttons/ButtonImage'
 import colors from '@/utils/colors'
@@ -14,6 +16,12 @@ type NavProps = StackNavigationProp<ParamsList, 'Statistic'>
 
 export default function Step1({ navigation }: { navigation: NavProps }) {
   const dispatch = useDispatch()
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(setStep(1))
+    }, [dispatch])
+  )
 
   const ButtonHandlerMale = () => {
     dispatch(setGender('men'))
